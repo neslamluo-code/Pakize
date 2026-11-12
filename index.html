@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAKIZEH | پاکیزه</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #faf7f0;
+    --sage: #cbd6c1;
+    --lavender: #ded2e8;
+    --pink: #f0d8d5;
+    --yellow: #f1e5c8;
+    --dark: #48483f;
+    --muted: #858477;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Vazirmatn', sans-serif;
+    line-height: 1.9;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.header {
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid #e8e3d9;
+    background: #faf7f0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 4px;
+    direction: ltr;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    gap: 24px;
+    font-size: 12px;
+}
+
+.nav a:hover {
+    color: #89977d;
+}
+
+.cart {
+    border: 1px solid #d8d6ca;
+    border-radius: 25px;
+    background: transparent;
+    padding: 8px 13px;
+    color: var(--dark);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.hero {
+    min-height: 460px;
+    padding: 45px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.hero-text {
+    animation: appear 1s ease;
+}
+
+.eyebrow {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #89957c;
+    direction: ltr;
+    display: inline-block;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 47px);
+    font-weight: 500;
+    line-height: 1.65;
+    margin: 15px 0;
+}
+
+.hero p {
+    max-width: 360px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.btn {
+    display: inline-block;
+    border: 0;
+    background: #929e80;
+    color: white;
+    border-radius: 30px;
+    padding: 11px 25px;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--dark);
+    transform: translateY(-3px);
+}
+
+.hero-art {
+    position: relative;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    background: #e8e7d9;
+}
+
+.leaf {
+    position: absolute;
+    width: 90px;
+    height: 35px;
+    border-radius: 100% 0 100% 0;
+    background: #a9b99a;
+    opacity: .8;
+}
+
+.leaf.one {
+    top: 45px;
+    right: 45px;
+    transform: rotate(-35deg);
+}
+
+.leaf.two {
+    bottom: 45px;
+    left: 45px;
+    transform: rotate(35deg);
+}
+
+.soap {
+    width: 105px;
+    height: 155px;
+    border-radius: 16px 16px 23px 23px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 7px;
+    box-shadow: 5px 18px 30px #55554418;
+    border: 1px solid #ffffff90;
+    font-size: 10px;
+    z-index: 1;
+}
+
+.soap strong {
+    font-family: Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.soap small {
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.soap.left {
+    background: #d3ddc8;
+    transform: rotate(-12deg) translate(-45px, 10px);
+}
+
+.soap.middle {
+    background: #efe1bd;
+    transform: translateY(-15px);
+    z-index: 3;
+}
+
+.soap.right {
+    background: #ddd0e7;
+    transform: rotate(12deg) translate(45px, 10px);
+    z-index: 2;
+}
+
+.categories {
+    padding: 30px 7%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    background: #f0eee5;
+}
+
+.category {
+    text-align: center;
+    font-size: 11px;
+}
+
+.category-icon {
+    width: 54px;
+    height: 54px;
+    margin: auto auto 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.products {
+    padding: 65px 7%;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.heading span {
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #929984;
+    direction: ltr;
+    display: inline-block;
+}
+
+.heading h2 {
+    font-size: 27px;
+    font-weight: 500;
+    margin: 7px 0;
+}
+
+.heading p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    border-radius: 13px;
+    overflow: hidden;
+    background: #fffefa;
+    transition: .3s;
+    border: 1px solid #eee9df;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #55553310;
+}
+
+.product-image {
+    height: 205px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.product-image .number {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    font-family: Georgia, serif;
+    font-size: 11px;
+}
+
+.lavender {
+    background: #e4d9ed;
+}
+
+.sage {
+    background: #d9e1d0;
+}
+
+.blush {
+    background: #f1ddda;
+}
+
+.butter {
+    background: #f1e6ca;
+}
+
+.bottle {
+    width: 83px;
+    height: 125px;
+    background: #faf8ee;
+    border-radius: 11px 11px 17px 17px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    direction: ltr;
+    box-shadow: 5px 12px 20px #00000012;
+}
+
+.bottle:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 27px;
+    height: 17px;
+    background: #b7b6a8;
+    border-radius: 4px 4px 2px 2px;
+}
+
+.bottle:after {
+    content: "PURE CARE";
+    position: absolute;
+    top: 67px;
+    font-size: 7px;
+    letter-spacing: 1px;
+}
+
+.product-info {
+    padding: 15px 12px 18px;
+}
+
+.product-info h3 {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.product-info p {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 5px 0 14px;
+}
+
+.product-button {
+    width: 100%;
+    border: 1px solid #d9d8cb;
+    background: transparent;
+    color: var(--dark);
+    border-radius: 22px;
+    padding: 8px 5px;
+    font-size: 10px;
+    transition: .3s;
+}
+
+.product-button:hover {
+    background: var(--dark);
+    color: white;
+}
+
+.about {
+    background: #e3e7d9;
+    padding: 65px 9%;
+    text-align: center;
+}
+
+.about .eyebrow {
+    font-size: 10px;
+}
+
+.about h2 {
+    font-size: 27px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.about p {
+    max-width: 550px;
+    margin: auto;
+    color: #74776b;
+    font-size: 13px;
+}
+
+.fragrances {
+    padding: 55px 8%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 15px;
+}
+
+.fragrance {
+    padding: 15px 5px;
+    border-left: 1px solid #e5e0d5;
+}
+
+.fragrance:last-child {
+    border-left: 0;
+}
+
+.fragrance span {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    color: #929984;
+}
+
+.fragrance h3 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    direction: ltr;
+}
+
+.fragrance p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.newsletter {
+    margin: 0 7% 55px;
+    background: #f0e4d9;
+    border-radius: 16px;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.newsletter h2 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.newsletter p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 8px 0 18px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.newsletter input {
+    width: min(250px, 60%);
+    border: 1px solid #ddd0c3;
+    border-radius: 25px;
+    padding: 10px 15px;
+    outline: none;
+    background: #fffaf4;
+    font-size: 12px;
+}
+
+footer {
+    padding: 40px 8% 20px;
+    background: #484a40;
+    color: #faf7ef;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.footer-logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 4px;
+    direction: ltr;
+    display: inline-block;
+}
+
+footer p {
+    font-size: 11px;
+    color: #d4d3c8;
+    margin-top: 8px;
+}
+
+.contact h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.contact a {
+    color: #e1d6bd;
+    direction: ltr;
+    display: inline-block;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    border-top: 1px solid #ffffff25;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    background: #484a40;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 11px;
+    z-index: 20;
+    transition: .3s;
+    width: max-content;
+    max-width: 90%;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        padding: 14px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 7px;
+        font-size: 10px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 7% 20px;
+        gap: 5px;
+    }
+
+    .hero p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .hero-art {
+        height: 280px;
+    }
+
+    .circle {
+        width: 235px;
+        height: 235px;
+    }
+
+    .soap {
+        width: 85px;
+        height: 125px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 22px 4%;
+        gap: 15px 5px;
+    }
+
+    .category {
+        font-size: 10px;
+    }
+
+    .category-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .products {
+        padding: 45px 5%;
+    }
+
+    .heading h2 {
+        font-size: 23px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 165px;
+    }
+
+    .bottle {
+        transform: scale(.85);
+    }
+
+    .product-info {
+        padding: 12px 9px 15px;
+    }
+
+    .product-info h3 {
+        font-size: 12px;
+    }
+
+    .product-info p {
+        font-size: 9px;
+    }
+
+    .product-button {
+        font-size: 9px;
+    }
+
+    .about {
+        padding: 45px 7%;
+    }
+
+    .about h2 {
+        font-size: 23px;
+    }
+
+    .fragrances {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 35px 6%;
+        gap: 10px;
+    }
+
+    .fragrance:nth-child(2) {
+        border-left: 0;
+    }
+
+    .newsletter {
+        margin: 0 5% 40px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        padding: 35px 6% 20px;
+    }
+
+    .copyright {
+        grid-column: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <a href="#home" class="logo">PAKIZEH</a>
+
+    <nav class="nav">
+        <a href="#home">خانه</a>
+        <a href="#products">محصولات</a>
+        <a href="#about">درباره ما</a>
+        <a href="#contact">تماس</a>
+    </nav>
+
+    <button class="cart" id="cartButton">
+        🛍 سبد خرید (<span id="cartCount">0</span>)
+    </button>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <span class="eyebrow">A LITTLE MORE CARE</span>
+
+        <h1>پاکیزگی،<br>با حس خوب هر روز.</h1>
+
+        <p>
+            رایحه‌هایی لطیف، رنگ‌هایی آرام و تجربه‌ای متفاوت
+            از مراقبت روزانه؛ زیبایی در ساده‌ترین لحظه‌هاست.
+        </p>
+
+        <a href="#products" class="btn">کشف محصولات ←</a>
+    </div>
+
+    <div class="hero-art">
+        <div class="circle"></div>
+        <div class="leaf one"></div>
+        <div class="leaf two"></div>
+
+        <div class="soap left">
+            <strong>PAKIZEH</strong>
+            <small>LAVENDER</small>
+        </div>
+
+        <div class="soap middle">
+            <strong>PAKIZEH</strong>
+            <small>PURE CARE</small>
+        </div>
+
+        <div class="soap right">
+            <strong>PAKIZEH</strong>
+            <small>JASMINE</small>
+        </div>
+    </div>
+</section>
+
+<section class="categories">
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#dce5d3">🌿</div>
+        <span>صابون طبیعی</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#e6dbee">🫧</div>
+        <span>شوینده صورت</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#f2ddda">✿</div>
+        <span>شوینده دست</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#f2e8cb">🧺</div>
+        <span>شوینده لباس</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#dce5e4">⌂</div>
+        <span>شوینده سطوح</span>
+    </a>
+</section>
+
+<section class="products" id="products">
+    <div class="heading">
+        <span>THE PAKIZEH COLLECTION</span>
+        <h2>مجموعه پاکیزه</h2>
+        <p>برای لحظه‌های کوچک مراقبت از خودت.</p>
+    </div>
+
+    <div class="product-grid">
+
+        <article class="product-card">
+            <div class="product-image lavender">
+                <span class="number">01</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>شوینده صورت</h3>
+                <p>اسطوخودوس · لطافت روزانه</p>
+                <button class="product-button" data-product="شوینده صورت">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-image sage">
+                <span class="number">02</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>شوینده دست</h3>
+                <p>گل یاس · رایحه‌ای دلنشین</p>
+                <button class="product-button" data-product="شوینده دست">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-image blush">
+                <span class="number">03</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>شوینده لباس</h3>
+                <p>پنبه تازه · حس تمیزی</p>
+                <button class="product-button" data-product="شوینده لباس">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-image butter">
+                <span class="number">04</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>صابون طبیعی</h3>
+                <p>وانیل ملایم · آرامش‌بخش</p>
+                <button class="product-button" data-product="صابون طبیعی">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="about" id="about">
+    <span class="eyebrow">OUR PHILOSOPHY</span>
+
+    <h2>سادگی، پاکیزگی، آرامش.</h2>
+
+    <p>
+        در پاکیزه به جزئیات کوچک اهمیت می‌دهیم؛ از رایحه‌های
+        دلنشین تا تجربه‌ای زیبا در ساده‌ترین لحظه‌های روزمره.
+        هدف ما ساختن دنیایی از تازگی، لطافت و حس خوب است.
+    </p>
+</section>
+
+<section class="fragrances">
+    <div class="fragrance">
+        <span>01 —</span>
+        <h3>Lavender</h3>
+        <p>اسطوخودوس</p>
+    </div>
+
+    <div class="fragrance">
+        <span>02 —</span>
+        <h3>Jasmine</h3>
+        <p>گل یاس</p>
+    </div>
+
+    <div class="fragrance">
+        <span>03 —</span>
+        <h3>Fresh Cotton</h3>
+        <p>پنبه تازه</p>
+    </div>
+
+    <div class="fragrance">
+        <span>04 —</span>
+        <h3>Soft Vanilla</h3>
+        <p>وانیل ملایم</p>
+    </div>
+</section>
+
+<section class="newsletter">
+    <h2>عضوی از دنیای پاکیزه باش.</h2>
+    <p>با رایحه‌های جدید و محصولات تازه آشنا شو.</p>
+
+    <form id="newsletterForm">
+        <input type="email" placeholder="آدرس ایمیل شما" required>
+        <button class="btn" type="submit">عضویت</button>
+    </form>
+</section>
+
+</main>
+
+<footer id="contact">
+    <div>
+        <a href="#home" class="footer-logo">PAKIZEH</a>
+        <p>پاکیزگی، با حس خوب هر روز.</p>
+        <p>زیبایی در سادگی است.</p>
+    </div>
+
+    <div class="contact">
+        <h3>با ما در ارتباط باش</h3>
+        <p>شماره تماس: ۰۹۱۲ XXX XXXX</p>
+        <p>
+            اینستاگرام:
+            <a href="https://instagram.com/pakizeh.soap"
+               target="_blank" rel="noopener noreferrer">
+                @pakizeh.soap
+            </a>
+        </p>
+    </div>
+
+    <p class="copyright">
+        © 2026 PAKIZEH · ALL RIGHTS RESERVED
+    </p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+let cart = [];
+
+const count = document.getElementById('cartCount');
+const toast = document.getElementById('toast');
+let toastTimer;
+
+function showMessage(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
+
+document.querySelectorAll('[data-product]').forEach(button => {
+    button.addEventListener('click', () => {
+        cart.push(button.dataset.product);
+        count.textContent = cart.length;
+
+        showMessage(button.dataset.product + ' به سبد خرید اضافه شد.');
+    });
+});
+
+document.getElementById('cartButton').addEventListener('click', () => {
+    if (cart.length === 0) {
+        showMessage('سبد خرید شما خالی است.');
+    } else {
+        showMessage('تعداد محصولات انتخاب‌شده: ' + cart.length);
+    }
+});
+
+document.getElementById('newsletterForm').addEventListener('submit', event => {
+    event.preventDefault();
+    showMessage('این بخش هنوز به سامانه ثبت ایمیل متصل نیست.');
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+        const target = document.querySelector(link.getAttribute('href'));
+
+        if (target) {
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAKIZEH | پاکیزه</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #faf7f0;
+    --sage: #cbd6c1;
+    --lavender: #ded2e8;
+    --pink: #f0d8d5;
+    --yellow: #f1e5c8;
+    --dark: #48483f;
+    --muted: #858477;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Vazirmatn', sans-serif;
+    line-height: 1.9;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.header {
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid #e8e3d9;
+    background: #faf7f0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 4px;
+    direction: ltr;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    gap: 24px;
+    font-size: 12px;
+}
+
+.nav a:hover {
+    color: #89977d;
+}
+
+.cart {
+    border: 1px solid #d8d6ca;
+    border-radius: 25px;
+    background: transparent;
+    padding: 8px 13px;
+    color: var(--dark);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.hero {
+    min-height: 460px;
+    padding: 45px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.hero-text {
+    animation: appear 1s ease;
+}
+
+.eyebrow {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #89957c;
+    direction: ltr;
+    display: inline-block;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 47px);
+    font-weight: 500;
+    line-height: 1.65;
+    margin: 15px 0;
+}
+
+.hero p {
+    max-width: 360px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.btn {
+    display: inline-block;
+    border: 0;
+    background: #929e80;
+    color: white;
+    border-radius: 30px;
+    padding: 11px 25px;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--dark);
+    transform: translateY(-3px);
+}
+
+.hero-art {
+    position: relative;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    background: #e8e7d9;
+}
+
+.leaf {
+    position: absolute;
+    width: 90px;
+    height: 35px;
+    border-radius: 100% 0 100% 0;
+    background: #a9b99a;
+    opacity: .8;
+}
+
+.leaf.one {
+    top: 45px;
+    right: 45px;
+    transform: rotate(-35deg);
+}
+
+.leaf.two {
+    bottom: 45px;
+    left: 45px;
+    transform: rotate(35deg);
+}
+
+.soap {
+    width: 105px;
+    height: 155px;
+    border-radius: 16px 16px 23px 23px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 7px;
+    box-shadow: 5px 18px 30px #55554418;
+    border: 1px solid #ffffff90;
+    font-size: 10px;
+    z-index: 1;
+}
+
+.soap strong {
+    font-family: Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.soap small {
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.soap.left {
+    background: #d3ddc8;
+    transform: rotate(-12deg) translate(-45px, 10px);
+}
+
+.soap.middle {
+    background: #efe1bd;
+    transform: translateY(-15px);
+    z-index: 3;
+}
+
+.soap.right {
+    background: #ddd0e7;
+    transform: rotate(12deg) translate(45px, 10px);
+    z-index: 2;
+}
+
+.categories {
+    padding: 30px 7%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    background: #f0eee5;
+}
+
+.category {
+    text-align: center;
+    font-size: 11px;
+}
+
+.category-icon {
+    width: 54px;
+    height: 54px;
+    margin: auto auto 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.products {
+    padding: 65px 7%;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.heading span {
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #929984;
+    direction: ltr;
+    display: inline-block;
+}
+
+.heading h2 {
+    font-size: 27px;
+    font-weight: 500;
+    margin: 7px 0;
+}
+
+.heading p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    border-radius: 13px;
+    overflow: hidden;
+    background: #fffefa;
+    transition: .3s;
+    border: 1px solid #eee9df;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #55553310;
+}
+
+.product-image {
+    height: 205px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.product-image .number {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    font-family: Georgia, serif;
+    font-size: 11px;
+}
+
+.lavender {
+    background: #e4d9ed;
+}
+
+.sage {
+    background: #d9e1d0;
+}
+
+.blush {
+    background: #f1ddda;
+}
+
+.butter {
+    background: #f1e6ca;
+}
+
+.bottle {
+    width: 83px;
+    height: 125px;
+    background: #faf8ee;
+    border-radius: 11px 11px 17px 17px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    direction: ltr;
+    box-shadow: 5px 12px 20px #00000012;
+}
+
+.bottle:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 27px;
+    height: 17px;
+    background: #b7b6a8;
+    border-radius: 4px 4px 2px 2px;
+}
+
+.bottle:after {
+    content: "PURE CARE";
+    position: absolute;
+    top: 67px;
+    font-size: 7px;
+    letter-spacing: 1px;
+}
+
+.product-info {
+    padding: 15px 12px 18px;
+}
+
+.product-info h3 {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.product-info p {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 5px 0 14px;
+}
+
+.product-button {
+    width: 100%;
+    border: 1px solid #d9d8cb;
+    background: transparent;
+    color: var(--dark);
+    border-radius: 22px;
+    padding: 8px 5px;
+    font-size: 10px;
+    transition: .3s;
+}
+
+.product-button:hover {
+    background: var(--dark);
+    color: white;
+}
+
+.about {
+    background: #e3e7d9;
+    padding: 65px 9%;
+    text-align: center;
+}
+
+.about .eyebrow {
+    font-size: 10px;
+}
+
+.about h2 {
+    font-size: 27px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.about p {
+    max-width: 550px;
+    margin: auto;
+    color: #74776b;
+    font-size: 13px;
+}
+
+.fragrances {
+    padding: 55px 8%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 15px;
+}
+
+.fragrance {
+    padding: 15px 5px;
+    border-left: 1px solid #e5e0d5;
+}
+
+.fragrance:last-child {
+    border-left: 0;
+}
+
+.fragrance span {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    color: #929984;
+}
+
+.fragrance h3 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    direction: ltr;
+}
+
+.fragrance p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.newsletter {
+    margin: 0 7% 55px;
+    background: #f0e4d9;
+    border-radius: 16px;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.newsletter h2 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.newsletter p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 8px 0 18px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.newsletter input {
+    width: min(250px, 60%);
+    border: 1px solid #ddd0c3;
+    border-radius: 25px;
+    padding: 10px 15px;
+    outline: none;
+    background: #fffaf4;
+    font-size: 12px;
+}
+
+footer {
+    padding: 40px 8% 20px;
+    background: #484a40;
+    color: #faf7ef;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.footer-logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 4px;
+    direction: ltr;
+    display: inline-block;
+}
+
+footer p {
+    font-size: 11px;
+    color: #d4d3c8;
+    margin-top: 8px;
+}
+
+.contact h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.contact a {
+    color: #e1d6bd;
+    direction: ltr;
+    display: inline-block;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    border-top: 1px solid #ffffff25;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    background: #484a40;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 11px;
+    z-index: 20;
+    transition: .3s;
+    width: max-content;
+    max-width: 90%;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        padding: 14px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 7px;
+        font-size: 10px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 7% 20px;
+        gap: 5px;
+    }
+
+    .hero p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .hero-art {
+        height: 280px;
+    }
+
+    .circle {
+        width: 235px;
+        height: 235px;
+    }
+
+    .soap {
+        width: 85px;
+        height: 125px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 22px 4%;
+        gap: 15px 5px;
+    }
+
+    .category {
+        font-size: 10px;
+    }
+
+    .category-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .products {
+        padding: 45px 5%;
+    }
+
+    .heading h2 {
+        font-size: 23px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 165px;
+    }
+
+    .bottle {
+        transform: scale(.85);
+    }
+
+    .product-info {
+        padding: 12px 9px 15px;
+    }
+
+    .product-info h3 {
+        font-size: 12px;
+    }
+
+    .product-info p {
+        font-size: 9px;
+    }
+
+    .product-button {
+        font-size: 9px;
+    }
+
+    .about {
+        padding: 45px 7%;
+    }
+
+    .about h2 {
+        font-size: 23px;
+    }
+
+    .fragrances {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 35px 6%;
+        gap: 10px;
+    }
+
+    .fragrance:nth-child(2) {
+        border-left: 0;
+    }
+
+    .newsletter {
+        margin: 0 5% 40px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        padding: 35px 6% 20px;
+    }
+
+    .copyright {
+        grid-column: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <a href="#home" class="logo">PAKIZEH</a>
+
+    <nav class="nav">
+        <a href="#home">خانه</a>
+        <a href="#products">محصولات</a>
+        <a href="#about">درباره ما</a>
+        <a href="#contact">تماس</a>
+    </nav>
+
+    <button class="cart" id="cartButton">
+        🛍 سبد خرید (<span id="cartCount">0</span>)
+    </button>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <span class="eyebrow">A LITTLE MORE CARE</span>
+
+        <h1>پاکیزگی،<br>با حس خوب هر روز.</h1>
+
+        <p>
+            رایحه‌هایی لطیف، رنگ‌هایی آرام و تجربه‌ای متفاوت
+            از مراقبت روزانه؛ زیبایی در ساده‌ترین لحظه‌هاست.
+        </p>
+
+        <a href="#products" class="btn">کشف محصولات ←</a>
+    </div>
+
+    <div class="hero-art">
+        <div class="circle"></div>
+        <div class="leaf one"></div>
+        <div class="leaf two"></div>
+
+        <div class="soap left">
+            <strong>PAKIZEH</strong>
+            <small>LAVENDER</small>
+        </div>
+
+        <div class="soap middle">
+            <strong>PAKIZEH</strong>
+            <small>PURE CARE</small>
+        </div>
+
+        <div class="soap right">
+            <strong>PAKIZEH</strong>
+            <small>JASMINE</small>
+        </div>
+    </div>
+</section>
+
+<section class="categories">
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#dce5d3">🌿</div>
+        <span>صابون طبیعی</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#e6dbee">🫧</div>
+        <span>شوینده صورت</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#f2ddda">✿</div>
+        <span>شوینده دست</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#f2e8cb">🧺</div>
+        <span>شوینده لباس</span>
+    </a>
+
+    <a href="#products" class="category">
+        <div class="category-icon" style="background:#dce5e4">⌂</div>
+        <span>شوینده سطوح</span>
+    </a>
+</section>
+
+<section class="products" id="products">
+    <div class="heading">
+        <span>THE PAKIZEH COLLECTION</span>
+        <h2>مجموعه پاکیزه</h2>
+        <p>برای لحظه‌های کوچک مراقبت از خودت.</p>
+    </div>
+
+    <div class="product-grid">
+
+        <article class="product-card">
+            <div class="product-image lavender">
+                <span class="number">01</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>شوینده صورت</h3>
+                <p>اسطوخودوس · لطافت روزانه</p>
+                <button class="product-button" data-product="شوینده صورت">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-image sage">
+                <span class="number">02</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>شوینده دست</h3>
+                <p>گل یاس · رایحه‌ای دلنشین</p>
+                <button class="product-button" data-product="شوینده دست">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-image blush">
+                <span class="number">03</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>شوینده لباس</h3>
+                <p>پنبه تازه · حس تمیزی</p>
+                <button class="product-button" data-product="شوینده لباس">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <div class="product-image butter">
+                <span class="number">04</span>
+                <div class="bottle">PAKIZEH</div>
+            </div>
+            <div class="product-info">
+                <h3>صابون طبیعی</h3>
+                <p>وانیل ملایم · آرامش‌بخش</p>
+                <button class="product-button" data-product="صابون طبیعی">
+                    افزودن به سبد خرید
+                </button>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="about" id="about">
+    <span class="eyebrow">OUR PHILOSOPHY</span>
+
+    <h2>سادگی، پاکیزگی، آرامش.</h2>
+
+    <p>
+        در پاکیزه به جزئیات کوچک اهمیت می‌دهیم؛ از رایحه‌های
+        دلنشین تا تجربه‌ای زیبا در ساده‌ترین لحظه‌های روزمره.
+        هدف ما ساختن دنیایی از تازگی، لطافت و حس خوب است.
+    </p>
+</section>
+
+<section class="fragrances">
+    <div class="fragrance">
+        <span>01 —</span>
+        <h3>Lavender</h3>
+        <p>اسطوخودوس</p>
+    </div>
+
+    <div class="fragrance">
+        <span>02 —</span>
+        <h3>Jasmine</h3>
+        <p>گل یاس</p>
+    </div>
+
+    <div class="fragrance">
+        <span>03 —</span>
+        <h3>Fresh Cotton</h3>
+        <p>پنبه تازه</p>
+    </div>
+
+    <div class="fragrance">
+        <span>04 —</span>
+        <h3>Soft Vanilla</h3>
+        <p>وانیل ملایم</p>
+    </div>
+</section>
+
+<section class="newsletter">
+    <h2>عضوی از دنیای پاکیزه باش.</h2>
+    <p>با رایحه‌های جدید و محصولات تازه آشنا شو.</p>
+
+    <form id="newsletterForm">
+        <input type="email" placeholder="آدرس ایمیل شما" required>
+        <button class="btn" type="submit">عضویت</button>
+    </form>
+</section>
+
+</main>
+
+<footer id="contact">
+    <div>
+        <a href="#home" class="footer-logo">PAKIZEH</a>
+        <p>پاکیزگی، با حس خوب هر روز.</p>
+        <p>زیبایی در سادگی است.</p>
+    </div>
+
+    <div class="contact">
+        <h3>با ما در ارتباط باش</h3>
+        <p>شماره تماس: ۰۹۱۲ XXX XXXX</p>
+        <p>
+            اینستاگرام:
+            <a href="https://instagram.com/pakizeh.soap"
+               target="_blank" rel="noopener noreferrer">
+                @pakizeh.soap
+            </a>
+        </p>
+    </div>
+
+    <p class="copyright">
+        © 2026 PAKIZEH · ALL RIGHTS RESERVED
+    </p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+let cart = [];
+
+const count = document.getElementById('cartCount');
+const toast = document.getElementById('toast');
+let toastTimer;
+
+function showMessage(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
+
+document.querySelectorAll('[data-product]').forEach(button => {
+    button.addEventListener('click', () => {
+        cart.push(button.dataset.product);
+        count.textContent = cart.length;
+
+        showMessage(button.dataset.product + ' به سبد خرید اضافه شد.');
+    });
+});
+
+document.getElementById('cartButton').addEventListener('click', () => {
+    if (cart.length === 0) {
+        showMessage('سبد خرید شما خالی است.');
+    } else {
+        showMessage('تعداد محصولات انتخاب‌شده: ' + cart.length);
+    }
+});
+
+document.getElementById('newsletterForm').addEventListener('submit', event => {
+    event.preventDefault();
+    showMessage('این بخش هنوز به سامانه ثبت ایمیل متصل نیست.');
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+        const target = document.querySelector(link.getAttribute('href'));
+
+        if (target) {
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
